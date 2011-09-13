@@ -2,7 +2,25 @@
 
 This is a quick tutorial for debugging memory leaks in node.js.
 
-## Step 1: Create some leaking code
+## Step 1: Install the debugging tools
+
+First of all, you need to install the `v8-profiler` module. Without that
+required from within your app, you will not be able to take heap snapshots
+in the debugger.
+
+```
+mkdir node_modules
+npm install v8-profiler
+```
+
+Once you have that installed, you need to install the node inspector utility
+by doing:
+
+```
+npm install -g node-inspector
+```
+
+## Step 2: Create some leaking code
 
 In order to debug a memory leak, we first need to create one. This is as easy
 as adding a bunch of objects to an array every 1s inside a file called `leak.js`
@@ -24,24 +42,6 @@ setInterval(function() {
 
   console.error('Leaks: %d', leaks.length);
 }, 1000);
-```
-
-## Step 2: Install the debugging tools
-
-First of all, you need to install the `v8-profiler` module that we included
-in our test file. Without that, you will not be able to take heap snapshots
-in the debugger.
-
-```
-mkdir node_modules
-npm install v8-profiler
-```
-
-Once you have that installed, you need to install the node inspector utility
-by doing:
-
-```
-npm install -g node-inspector
 ```
 
 ## Step 3: Debug the memory leak
@@ -77,7 +77,7 @@ You should see a typical Chrome Developer Tools window:
 
 You should now see something like this:
 
-![Screenshot]()
+![Screenshot](https://github.com/felixge/node-memory-leak-tutorial/raw/master/screenshot.png)
 
 In our case this lets you see that there have been 2200 new LeakingClass
 objects created since the last snapshot, and that there are 29000 of them
