@@ -83,5 +83,9 @@ In our case this lets you see that there have been 2200 new LeakingClass
 objects created since the last snapshot, and that there are 29000 of them
 total in the heap at this point.
 
+**Note:** In order to find out which objects prevent your LeakingClass instances from
+being garbage collected, you can use this [v8-profiler fork](https://github.com/fgnass/v8-profiler)
+to explore the graph of _retainers_ ([screenshot](http://fgnass.posterous.com/finding-memory-leaks-in-nodejs-applications)).
+
 That's it, you have learned the basics of tracking down memory leaks in
 node.js.
