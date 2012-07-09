@@ -87,5 +87,10 @@ total in the heap at this point.
 being garbage collected, you can use this [v8-profiler fork](https://github.com/fgnass/v8-profiler)
 to explore the graph of _retainers_ ([screenshot](http://fgnass.posterous.com/finding-memory-leaks-in-nodejs-applications)).
 
+
+**Update:** You can also try out [Nodetime](http://nodetime.com)'s memory profiler. It uses V8's heap profiler to take snapshots and show the heap as seen from the retainers, e.g. variables and properties. Installing Nodetime is just two simple steps: 1) `npm install nodetime` and 2) `require('nodetime').profile()` (before other require statements). It will then print out a link for accessing the profiler's web console at nodetime.com. More on memory profiling with Nodetime in the blog post [
+Detecting Memory Leaks in Node.js Applications](http://nodetime.com/blog/detecting-memory-leaks-in-nodejs-apps) (with screenshot). 
+
+
 That's it, you have learned the basics of tracking down memory leaks in
 node.js.
