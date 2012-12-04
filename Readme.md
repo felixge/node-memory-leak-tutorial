@@ -64,7 +64,7 @@ node-inspector
 ```
 
 In order to use the inspector, use Google Chrome to open up the url of the
-debugger which should be: [http://0.0.0.0:8080/debug?port=5858][http://0.0.0.0:8080/debug?port=5858].
+debugger which should be: [http://0.0.0.0:8080/debug?port=5858](http://0.0.0.0:8080/debug?port=5858).
 
 You should see a typical Chrome Developer Tools window:
 
